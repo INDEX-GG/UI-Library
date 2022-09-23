@@ -14,13 +14,6 @@
 ### `npm run storybook`
 ### `npm run format`
 ### `npm run start (not recommended)`
+
 ## Local project url 
 ### [http://localhost:6006](http://localhost:6006)
-
-
-## Learn More
-
-To learn React, check out the [React documentation](https://reactjs.org/).<br/>
-To learn Storybook, check out the [Storybook documentation](https://storybook.js.org/).<br/>
-To learn styled-components, check out the [styled-components documentation](https://styled-components.com/).<br/>
-

@@ -15,4 +15,4 @@
   - `default input argument `
 - styledComponents
   - 
-  - `Заменяемы стили компонента наследованные от его экспортированного объекта` (<span style="color:red">смотри ./src/components/InputUIElement</span>)`
+  - `Заменяемые стили компонента наследованные от его экспортированного объекта`

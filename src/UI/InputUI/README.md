@@ -1,0 +1,18 @@
+# Input Props:
+- iconObj
+  - 
+    - `*isVisible` (`type: boolean`, `default: false`) - отображение иконки
+    - `*IconComponent` (`type: FC | null`, `default: null`) - функциональный компонент
+    - `*position` (`type: "right" | "left" | "auto"`  `default: auto` ) - позицианирование иконки
+    - `onClick` (`type: Void Click | undefined`, `default: undefined`)
+- error
+  - 
+  - `*isError` (`type: boolean`, `default: false`) - отображение ошибки
+  - `*errorMessage` (`type: string`, `default: ""`) - текст ошибки
+  - `*isErrorDOM` (`type: "boolean"` `default: true` ) - <span style="color:red">рекомендуется ставить true</span>. Заранее отрендерить ошибку в DOM
+- inputProps
+  - 
+  - `default input argument `
+- styledComponents
+  - 
+  - `Заменяемы стили компонента наследованные от его экспортированного объекта` (<span style="color:red">смотри ./src/components/InputUIElement</span>)`

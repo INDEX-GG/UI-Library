@@ -1,8 +1,13 @@
 import React from "react";
-import "./App.css";
+import InputUIElement from "./components/InputUIElement/InputUIElement";
+import "css/global.css";
 
 function App() {
-  return <h1>ok</h1>;
+  return (
+    <>
+      <InputUIElement />
+    </>
+  );
 }
 
 export default App;

@@ -21,31 +21,66 @@ export const InputUI = forwardRef<HTMLInputElement, IInputUIProps>(
   ) => {
     //? styled-components
     const {
-      InputSC = InputDefaultSC,
+      ContainerSC = ContainerDefaultSC,
       InputContainerSC = InputContainerDefaultSC,
+      InputSC = InputDefaultSC,
+      InputIconButtonSC = InputIconButtonDefaultSC,
       InputErrorTextSC = InputErrorTextDefaultSC,
       InputErrorContainerSC = InputErrorContainerDefaultSC,
     } = styledComponents as Required<typeof styledComponents>;
+
     //? main-logic
-    const { errorMessage, isVisibleError, isError } = useInputUI({ iconObj, error, inputProps });
+    const {
+      errorMessage,
+      isVisibleError,
+      isError,
+      IconComponent,
+      isVisibleIcon,
+    } = useInputUI({
+      iconObj,
+      error,
+      inputProps,
+    });
+
+    console.log(iconObj);
 
     return (
-      <InputContainerSC>
-        <InputSC {...inputProps} ref={ref} isError={isError} />
+      <ContainerSC>
+        <InputContainerSC>
+          <InputSC
+            {...inputProps}
+            ref={ref}
+            isError={isError}
+            iconWidth={iconObj.width}
+            iconPosition={iconObj.position}
+          />
+          {isVisibleIcon && (
+            <InputIconButtonSC
+              iconWidth={iconObj.width}
+              iconPosition={iconObj.position}
+              onClick={iconObj.onClick}>
+              {IconComponent && <IconComponent />}
+            </InputIconButtonSC>
+          )}
+        </InputContainerSC>
         {isVisibleError && (
           <InputErrorContainerSC>
-            <InputErrorTextSC isVisible={isError}>{errorMessage}</InputErrorTextSC>
+            <InputErrorTextSC isVisible={isError}>
+              {errorMessage}
+            </InputErrorTextSC>
           </InputErrorContainerSC>
         )}
-      </InputContainerSC>
+      </ContainerSC>
     );
   },
 );
 
 InputUI.displayName = "InputUI";
 const {
-  InputSC: InputDefaultSC,
+  ContainerSC: ContainerDefaultSC,
   InputContainerSC: InputContainerDefaultSC,
+  InputSC: InputDefaultSC,
+  InputIconButtonSC: InputIconButtonDefaultSC,
   InputErrorTextSC: InputErrorTextDefaultSC,
   InputErrorContainerSC: InputErrorContainerDefaultSC,
 } = InputUIStyledComponent;

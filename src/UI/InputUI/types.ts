@@ -4,11 +4,19 @@ import { useInputUIStyles } from "UI/InputUI/style";
 // style-obj
 export const InputUIStyledComponent = useInputUIStyles();
 
+//export types
+export type IconPositionType = "right" | "left" | "auto";
+
 // types
 type inputStyledComponentsType = Partial<typeof InputUIStyledComponent>;
 type inputPropsType = InputHTMLAttributes<HTMLInputElement>;
-type errorType = { isError: boolean; errorMessage: string; isErrorDOM: boolean };
+type errorType = {
+  isError: boolean;
+  errorMessage: string;
+  isErrorDOM: boolean;
+};
 type iconObjType = {
+  width: number;
   isVisible: boolean;
   IconComponent: FC | null;
   position: "right" | "left" | "auto";
@@ -24,7 +32,8 @@ export interface IInputUIProps {
 }
 
 // default constants
-export const InputUIDefaultStyledComponents: inputStyledComponentsType = InputUIStyledComponent;
+export const InputUIDefaultStyledComponents: inputStyledComponentsType =
+  InputUIStyledComponent;
 export const InputUIDefaultInputProps: inputPropsType = {};
 export const InputUIDefaultError: errorType = {
   isError: false,
@@ -32,6 +41,7 @@ export const InputUIDefaultError: errorType = {
   isErrorDOM: true,
 };
 export const InputUIDefaultIcon: iconObjType = {
+  width: 30,
   isVisible: false,
   IconComponent: null,
   position: "auto",

@@ -46,10 +46,18 @@ const InputSC = styled("input")<IInput>`
 const InputIconButtonSC = styled("button")<IInputIcon>`
   width: ${({ iconWidth }) => iconWidth}px;
   height: 100%;
-  background-color: red;
-  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
   position: absolute;
   top: 0;
+  padding: ${({ iconPosition }) =>
+    iconPosition === "right"
+      ? "0 15px 0 0"
+      : iconPosition === "left"
+      ? "0 0 0 15px"
+      : 0};
   right: ${({ iconPosition }) => (iconPosition === "right" ? 0 : "auto")};
   left: ${({ iconPosition }) => (iconPosition === "left" ? 0 : "auto")};
 

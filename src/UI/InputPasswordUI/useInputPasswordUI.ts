@@ -1,9 +1,24 @@
-import { ChangeEventHandler, useState } from "react";
+import { ChangeEvent, useState } from "react";
+import { PasswordInputPropsChangeType } from "UI/InputPasswordUI/types";
 
-type InputPropsChange = ChangeEventHandler<HTMLInputElement> | undefined;
+const validatePassword = (
+  value: string,
+): { value: string; isValid: boolean } => {
+  // check only english letter, number, default symbol and empty value
+  const isValidate =
+    !!value.match(/^[a-zA-Z0-9!@?#$%^&*()_=+;:№]+$/) || value === "";
+
+  if (isValidate) {
+    return { value, isValid: isValidate };
+  }
+  return {
+    value: "",
+    isValid: isValidate,
+  };
+};
 
 export const useInputPasswordUI = (
-  handleChangeNativeInput: InputPropsChange,
+  onChangeInputProps: PasswordInputPropsChangeType,
 ) => {
   const [isShowPassword, setIsShowPassword] = useState<boolean>();
   const passwordType: "text" | "password" = isShowPassword
@@ -13,13 +28,21 @@ export const useInputPasswordUI = (
   const handleChangeShowPassword = () =>
     setIsShowPassword((prevState) => !prevState);
 
-  const handleModificationPasswordValue = (e) => {
-    handleChangeNativeInput();
+  // modification change value;
+  const handleModificationPasswordValue = (
+    e: ChangeEvent<HTMLInputElement>,
+  ) => {
+    const { value, isValid } = validatePassword(e.target.value);
+    if (isValid) {
+      const mutationEvent = { ...e, target: { ...e.target, value } };
+      onChangeInputProps(mutationEvent);
+    }
   };
 
   return {
     passwordType,
     isShowPassword,
     handleChangeShowPassword,
+    handleModificationPasswordValue,
   };
 };

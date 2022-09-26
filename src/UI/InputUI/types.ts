@@ -9,7 +9,7 @@ export type IconPositionType = "right" | "left" | "auto";
 
 // types
 type inputStyledComponentsType = Partial<typeof InputUIStyledComponent>;
-type inputPropsType = InputHTMLAttributes<HTMLInputElement>;
+export type InputPropsType = InputHTMLAttributes<HTMLInputElement>;
 type errorType = {
   isError: boolean;
   errorMessage: string;
@@ -27,14 +27,14 @@ type iconObjType = {
 export interface IInputUIProps {
   iconObj?: iconObjType;
   error?: errorType;
-  inputProps?: inputPropsType;
+  inputProps?: InputPropsType;
   styledComponents?: inputStyledComponentsType;
 }
 
 // default constants
 export const InputUIDefaultStyledComponents: inputStyledComponentsType =
   InputUIStyledComponent;
-export const InputUIDefaultInputProps: inputPropsType = {};
+export const InputUIDefaultInputProps: InputPropsType = {};
 export const InputUIDefaultError: errorType = {
   isError: false,
   errorMessage: "",

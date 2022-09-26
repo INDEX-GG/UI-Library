@@ -42,8 +42,6 @@ export const InputUI = forwardRef<HTMLInputElement, IInputUIProps>(
       inputProps,
     });
 
-    console.log(iconObj);
-
     return (
       <ContainerSC>
         <InputContainerSC>
@@ -84,3 +82,5 @@ const {
   InputErrorTextSC: InputErrorTextDefaultSC,
   InputErrorContainerSC: InputErrorContainerDefaultSC,
 } = InputUIStyledComponent;
+
+export default React.memo(InputUI);

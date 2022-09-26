@@ -45,7 +45,7 @@ export const InputDefault = TemplateInputPassword.bind({});
 
 InputDefault.args = {
   inputProps: {
-    value: "qwe",
+    value: "qwe123",
     onChange: (e) => {
       console.log(e.target.value);
     },

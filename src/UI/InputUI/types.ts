@@ -11,9 +11,9 @@ type excludesInputProps = "type" | "name" | "inputMode";
 
 // inputProps
 type InputPropsType = InputHTMLAttributes<HTMLInputElement>;
-// required Input props
+// required input props
 type RequiredInputProps = Required<Pick<InputPropsType, excludesInputProps>>;
-// not required Input props
+// not required input props
 type NotRequiredInputProps = Omit<InputPropsType, excludesInputProps>;
 
 // types
@@ -37,7 +37,7 @@ type iconObjType = {
 export interface IInputUIProps {
   iconObj?: iconObjType;
   error?: errorType;
-  inputProps?: CustomInputPropsType;
+  inputProps: CustomInputPropsType;
   styledComponents?: inputStyledComponentsType;
 }
 

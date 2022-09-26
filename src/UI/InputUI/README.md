@@ -1,10 +1,11 @@
 # Input Props:
 - iconObj
   - 
-    - `*isVisible` (`type: boolean`, `default: false`) - отображение иконки
-    - `*IconComponent` (`type: FC | null`, `default: null`) - функциональный компонент
-    - `*position` (`type: "right" | "left" | "auto"`  `default: auto` ) - позицианирование иконки
-    - `onClick` (`type: Void Click | undefined`, `default: undefined`)
+  - `*width` (`type: number`, `default: 0`) - ширина иконки
+  - `*isVisible` (`type: boolean`, `default: false`) - отображение иконки
+  - `*IconComponent` (`type: FC | null`, `default: null`) - функциональный компонент
+  - `*position` (`type: "right" | "left" | "auto"`  `default: auto` ) - позицианирование иконки
+  - `onClick` (`type: Void Click | undefined`, `default: undefined`)
 - error
   - 
   - `*isError` (`type: boolean`, `default: false`) - отображение ошибки

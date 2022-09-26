@@ -37,7 +37,7 @@ type iconObjType = {
 export interface IInputUIProps {
   iconObj?: iconObjType;
   error?: errorType;
-  inputProps?: CustomInputPropsType;
+  inputProps: CustomInputPropsType;
   styledComponents?: inputStyledComponentsType;
 }
 

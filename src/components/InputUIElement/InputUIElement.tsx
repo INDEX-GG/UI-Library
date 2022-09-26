@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { InputUIStyledComponent } from "UI/InputUI/types";
 import InputPasswordUI from "UI/InputPasswordUI/InputPasswordUI";
 import Title from "../Title/Title";
+import { ButtonUI } from "UI/ButtonUI/ButtonUI";
 
 const InputUIElement = () => {
   const [value, setValue] = useState<string>("");
@@ -42,11 +43,10 @@ const InputUIElement = () => {
       <InputUI
         inputProps={{
           type: "number",
-          name: "number-input",
+          name: "number",
           inputMode: "numeric",
         }}
       />
-      <button>submit</button>
     </form>
   );
 };

@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { InputUIStyledComponent } from "UI/InputUI/types";
 import InputPasswordUI from "UI/InputPasswordUI/InputPasswordUI";
 import Title from "../Title/Title";
-import { ButtonUI } from "UI/ButtonUI/ButtonUI";
+import { CodeFieldsUI } from "UI/CodeFieldsUI/CodeFieldsUI";
 
 const InputUIElement = () => {
   const [value, setValue] = useState<string>("");
@@ -47,6 +47,8 @@ const InputUIElement = () => {
           inputMode: "numeric",
         }}
       />
+      <Title>Code Input</Title>
+      <CodeFieldsUI fieldCount={4} />
     </form>
   );
 };

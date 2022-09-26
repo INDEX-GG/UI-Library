@@ -5,6 +5,8 @@ import { InputUIStyledComponent } from "UI/InputUI/types";
 import InputPasswordUI from "UI/InputPasswordUI/InputPasswordUI";
 import Title from "../Title/Title";
 import { CodeFieldsUI } from "UI/CodeFieldsUI/CodeFieldsUI";
+import { TextAreaUI } from "UI/TextAreaUI/TextAreaUI";
+import { TextAreaStylesObj } from "UI/TextAreaUI/types";
 
 const InputUIElement = () => {
   const [value, setValue] = useState<string>("");
@@ -48,7 +50,17 @@ const InputUIElement = () => {
         }}
       />
       <Title>Code Input</Title>
-      <CodeFieldsUI fieldCount={4} />
+      <CodeFieldsUI
+        fieldsCount={4}
+        callbackGetFinalCode={(code) => console.log(code)}
+      />
+      <Title>Text Area</Title>
+      <TextAreaUI
+        isAutoHeight={true}
+        error={{ errorMessage: "123", isError: true }}
+        styledComponents={{ TextAreaSC: TextAreaCustomSC }}>
+        123
+      </TextAreaUI>
     </form>
   );
 };
@@ -60,6 +72,12 @@ const CustomInputSC = styled(InputSC)`
   &::placeholder {
     color: orange;
   }
+`;
+
+const { TextAreaSC } = TextAreaStylesObj;
+
+const TextAreaCustomSC = styled(TextAreaSC)`
+  background-color: red;
 `;
 
 export default React.memo(InputUIElement);

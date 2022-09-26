@@ -2,11 +2,11 @@ import React, { ReactNode } from "react";
 import styled from "styled-components";
 
 interface ITitleProps {
-  href: string;
+  href?: string;
   children: ReactNode;
 }
 
-const Title = ({ children, href }: ITitleProps) => {
+const Title = ({ children, href = "" }: ITitleProps) => {
   return <LinkSC href={href}>{children}</LinkSC>;
 };
 

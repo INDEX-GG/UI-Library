@@ -3,17 +3,22 @@ import { InputUI } from "UI/InputUI/InputUI";
 import styled from "styled-components";
 import { InputUIStyledComponent } from "UI/InputUI/types";
 import InputPasswordUI from "UI/InputPasswordUI/InputPasswordUI";
+import Title from "../Title/Title";
 
 const InputUIElement = () => {
   const [value, setValue] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const ref = useRef<HTMLInputElement>(null);
   return (
-    <>
+    <form>
+      <Title>Custom Input</Title>
       <InputUI
         ref={ref}
         inputProps={{
           value,
+          type: "text",
+          inputMode: "text",
+          name: "custom-input",
           placeholder: "controller custom input",
           onChange: (e) => setValue(e.target.value),
         }}
@@ -26,13 +31,23 @@ const InputUIElement = () => {
           InputSC: CustomInputSC,
         }}
       />
+      <Title>InputPasswordUI</Title>
       <InputPasswordUI
         inputProps={{
           value: password,
           onChange: (e) => setPassword(e.target.value),
         }}
       />
-    </>
+      <Title>Input Number</Title>
+      <InputUI
+        inputProps={{
+          type: "number",
+          name: "number-input",
+          inputMode: "numeric",
+        }}
+      />
+      <button>submit</button>
+    </form>
   );
 };
 

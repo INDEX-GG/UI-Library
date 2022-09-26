@@ -16,5 +16,10 @@ const TemplateInput: ComponentStory<typeof InputUI> = (args) => (
 export const InputDefault = TemplateInput.bind({});
 
 InputDefault.args = {
-  inputProps: { placeholder: "text" },
+  inputProps: {
+    type: "text",
+    placeholder: "text",
+    inputMode: "text",
+    name: "default-input",
+  },
 };

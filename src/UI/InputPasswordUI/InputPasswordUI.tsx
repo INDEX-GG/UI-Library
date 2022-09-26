@@ -33,9 +33,10 @@ export const InputPasswordUI = (props: IInputPasswordUIProps) => {
       }}
       inputProps={{
         name: "password",
+        type: passwordType,
+        inputMode: "text",
         placeholder: "Введите пароль",
         ...inputProps,
-        type: passwordType,
         onChange: handleModificationPasswordValue,
       }}
     />

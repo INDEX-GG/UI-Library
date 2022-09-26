@@ -14,9 +14,8 @@ type RequiredInputPropsPassword = Required<
 >;
 
 // add not required key inputProps and delete required key
-type NotRequiredInputPropsPassword = Omit<
-  RequiredProps["inputProps"],
-  "value" | "onChange"
+type NotRequiredInputPropsPassword = Partial<
+  Omit<RequiredProps["inputProps"], "value" | "onChange">
 >;
 
 export type InputPropsPassword = RequiredInputPropsPassword &

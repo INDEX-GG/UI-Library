@@ -41,6 +41,16 @@ const InputSC = styled("input")<IInput>`
     color: ${({ isError }) => (isError ? errorColor : mainColor)};
     font-size: inherit;
   }
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  &[type="number"] {
+    -moz-appearance: textfield;
+  }
 `;
 
 const InputIconButtonSC = styled("button")<IInputIcon>`

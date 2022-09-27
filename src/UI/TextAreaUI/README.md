@@ -1,5 +1,5 @@
 # TextArea Props:
-- *isAutoHeight (`type: boolean`, `default: true`) - длинна по контенту   
+- isAutoHeight (`type: boolean`, `default: true`) - длинна по контенту   
   - 
 - error
   - 

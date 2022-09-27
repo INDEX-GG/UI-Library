@@ -7,6 +7,14 @@ import "css/global.css";
 export default {
   title: "Example/CodeFieldsUI",
   component: CodeFieldsUI,
+  argTypes: {
+    fieldsCount: {
+      description: "Количество поллей ввода",
+    },
+    callbackGetFinalCode: {
+      description: "каллбек успешного заполнения всех полей, (code) => {}",
+    },
+  },
 } as ComponentMeta<typeof CodeFieldsUI>;
 
 const TemplateCodeFields: ComponentStory<typeof CodeFieldsUI> = (args) => {

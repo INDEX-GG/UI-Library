@@ -1,0 +1,13 @@
+# TextArea Props:
+- *isAutoHeight (`type: boolean`, `default: true`) - длинна по контенту   
+  - 
+- error
+  - 
+  - `*isError` (`type: boolean`, `default: false`) - отображение ошибки
+  - `*errorMessage` (`type: string`, `default: ""`) - текст ошибки
+- textAreaProps
+  - 
+  - `default textarea argument `
+- styledComponents
+  - 
+  - `Заменяемые стили компонента наследованные от его экспортированного объекта`

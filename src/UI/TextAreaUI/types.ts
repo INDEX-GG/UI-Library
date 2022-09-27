@@ -1,8 +1,9 @@
-import { InputHTMLAttributes, ReactNode } from "react";
+import { InputHTMLAttributes, RefObject } from "react";
 import { useTextAreaUIStyles } from "UI/TextAreaUI/style";
 
 export const TextAreaStylesObj = useTextAreaUIStyles();
 
+export type TextAreaRefType = RefObject<HTMLTextAreaElement>;
 type TextAreaStyledComponentsType = Partial<typeof TextAreaStylesObj>;
 type TextAreaPropsType = InputHTMLAttributes<HTMLTextAreaElement>;
 type TextAreaErrorType = {
@@ -11,7 +12,6 @@ type TextAreaErrorType = {
 };
 
 export interface ITextAreaUIProps {
-  children?: ReactNode;
   isAutoHeight?: boolean;
   error?: TextAreaErrorType;
   textAreaProps?: TextAreaPropsType;

@@ -7,10 +7,14 @@ const ContainerSC = styled("div")`
   position: relative;
 `;
 
-const TextAreaSC = styled("textarea")<{ isError: boolean }>`
+const TextAreaSC = styled("textarea")<{
+  isError: boolean;
+  isAutoHeight: boolean;
+}>`
   resize: none;
+  overflow: ${({ isAutoHeight }) => (isAutoHeight ? "hidden" : "auto")};
   width: 100%;
-  height: 200px;
+  min-height: 200px;
   border-radius: 8px;
   border: 1px solid ${({ isError }) => (isError ? errorColor : mainColor)};
   padding: 10px;

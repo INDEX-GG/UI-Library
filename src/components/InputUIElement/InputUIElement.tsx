@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { InputUI } from "UI/InputUI/InputUI";
 import styled from "styled-components";
 import { InputUIStyledComponent } from "UI/InputUI/types";
@@ -11,7 +11,10 @@ import { TextAreaStylesObj } from "UI/TextAreaUI/types";
 const InputUIElement = () => {
   const [value, setValue] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [textArea, setTextArea] = useState<string>("");
   const ref = useRef<HTMLInputElement>(null);
+  const textAreaRef = useRef<HTMLTextAreaElement>(null);
+
   return (
     <form>
       <Title>Custom Input</Title>
@@ -56,11 +59,18 @@ const InputUIElement = () => {
       />
       <Title>Text Area</Title>
       <TextAreaUI
-        isAutoHeight={true}
-        error={{ errorMessage: "123", isError: true }}
-        styledComponents={{ TextAreaSC: TextAreaCustomSC }}>
-        123
-      </TextAreaUI>
+        isAutoHeight={false}
+        error={{ isError: true, errorMessage: "123" }}
+        textAreaProps={{
+          value: textArea,
+          placeholder: "AutoSize",
+          onChange: (e) => setTextArea(e.target.value),
+        }}
+        styledComponents={{
+          TextAreaSC: TextAreaCustomSC,
+          ErrorMessageSC: TextAreaCustomErrorSC,
+        }}
+      />
     </form>
   );
 };
@@ -74,10 +84,14 @@ const CustomInputSC = styled(InputSC)`
   }
 `;
 
-const { TextAreaSC } = TextAreaStylesObj;
+const { TextAreaSC, ErrorMessageSC } = TextAreaStylesObj;
 
 const TextAreaCustomSC = styled(TextAreaSC)`
-  background-color: red;
+  background-color: lightblue;
+`;
+
+const TextAreaCustomErrorSC = styled(ErrorMessageSC)`
+  color: orange;
 `;
 
 export default React.memo(InputUIElement);

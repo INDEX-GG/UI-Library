@@ -7,11 +7,24 @@ import { TextAreaUI } from "UI/TextAreaUI/TextAreaUI";
 export default {
   title: "Example/TextAreaUI",
   component: TextAreaUI,
+  argTypes: {
+    isAutoHeight: {
+      description: "длинна по контенту (не работает в storybook)",
+    },
+    styledComponents: {
+      description: "изменение дефолтных стилей",
+    },
+  },
 } as ComponentMeta<typeof TextAreaUI>;
 
 const TemplateTextAreaUI: ComponentStory<typeof TextAreaUI> = (args) => {
-  return <TextAreaUI />;
+  return <TextAreaUI {...args} />;
 };
 export const Default = TemplateTextAreaUI.bind({});
 
-Default.args = {};
+Default.args = {
+  isAutoHeight: true,
+  textAreaProps: {
+    placeholder: "TextArea Placeholder",
+  },
+};

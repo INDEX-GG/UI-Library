@@ -59,7 +59,7 @@ const InputUIElement = () => {
       />
       <Title>Text Area</Title>
       <TextAreaUI
-        isAutoHeight={false}
+        isAutoHeight={true}
         error={{ isError: true, errorMessage: "123" }}
         textAreaProps={{
           value: textArea,

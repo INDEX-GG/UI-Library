@@ -41,9 +41,9 @@ const TemplateInputPassword: ComponentStory<typeof InputPasswordUI> = ({
     </>
   );
 };
-export const InputDefault = TemplateInputPassword.bind({});
+export const Default = TemplateInputPassword.bind({});
 
-InputDefault.args = {
+Default.args = {
   inputProps: {
     value: "qwe123",
     onChange: (e) => {

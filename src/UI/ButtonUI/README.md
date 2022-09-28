@@ -1,12 +1,14 @@
 # Checkbox Props ("input type="checked"):
 - children (`type: ReactNode`, `default: undefined`) - контент внутри кнопки
   - 
+- isAutoWidth (`type: boolean`, `default: true`) - ширина и длинна кнопки 100%
+  -
+- isRippleEffect (`type: boolean`, `default: true`) - анимация клика
+  - 
 - iconObj
   - 
   - Icon (`type: FC | null`, `default: null`) - иконка внутри кнопки
   - position (`type: left | right | auto`, `default: auto`) - позиция иконки
-- isAutoWidth (`type: boolean`, `default: true`) - ширина и длинна кнопки 100%
-  - 
 - buttonProps
   - 
   - `default button argument `

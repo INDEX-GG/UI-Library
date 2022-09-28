@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { InputUI } from "UI/InputUI/InputUI";
 import styled from "styled-components";
 import { InputUIStyledComponent } from "UI/InputUI/types";
@@ -8,13 +8,13 @@ import { CodeFieldsUI } from "UI/CodeFieldsUI/CodeFieldsUI";
 import { TextAreaUI } from "UI/TextAreaUI/TextAreaUI";
 import { TextAreaStylesObj } from "UI/TextAreaUI/types";
 import { ButtonUI } from "UI/ButtonUI/ButtonUI";
+import { ButtonUIStyleObj } from "UI/ButtonUI/types";
 
 const InputUIElement = () => {
   const [value, setValue] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [textArea, setTextArea] = useState<string>("");
   const ref = useRef<HTMLInputElement>(null);
-  const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
   return (
     <form>
@@ -72,7 +72,16 @@ const InputUIElement = () => {
           ErrorMessageSC: TextAreaCustomErrorSC,
         }}
       />
-      <ButtonUI isAutoWidth={false}>Сообщения</ButtonUI>
+      <ButtonUI
+        isAutoWidth={false}
+        buttonProps={{
+          onClick: () => {
+            console.log(123);
+          },
+        }}
+        styledComponents={{ ButtonSC: CustomButtonSC }}>
+        Сообщения
+      </ButtonUI>
     </form>
   );
 };
@@ -94,6 +103,14 @@ const TextAreaCustomSC = styled(TextAreaSC)`
 
 const TextAreaCustomErrorSC = styled(ErrorMessageSC)`
   color: orange;
+`;
+
+const { ButtonSC } = ButtonUIStyleObj;
+
+const CustomButtonSC = styled(ButtonSC)`
+  width: 150px;
+  height: 40px;
+  border-radius: 5px;
 `;
 
 export default React.memo(InputUIElement);

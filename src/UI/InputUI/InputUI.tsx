@@ -54,6 +54,7 @@ export const InputUI = forwardRef<HTMLInputElement, IInputUIProps>(
           />
           {isVisibleIcon && (
             <InputIconButtonSC
+              type="button"
               iconWidth={iconObj.width}
               iconPosition={iconObj.position}
               onClick={iconObj.onClick}>

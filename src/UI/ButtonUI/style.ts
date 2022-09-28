@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 import { IButtonProps } from "UI/ButtonUI/types";
 
+//! Button
 const AutoWidthCSS = css`
   width: 100%;
   height: 100%;
@@ -19,6 +20,8 @@ interface IButtonSCProps extends Pick<IButtonProps, "isAutoWidth"> {
 const ButtonSC = styled("button")<IButtonSCProps>`
   ${({ isAutoWidth }) => isAutoWidth && AutoWidthCSS}
   ${({ isIcon }) => isIcon && IconButtonCSS}
+  position: relative;
+  overflow: hidden;
   font-family: inherit;
   font-size: 14px;
   line-height: 18px;
@@ -43,6 +46,7 @@ const ButtonSC = styled("button")<IButtonSCProps>`
   }
 `;
 
+//! icon
 type RequiredIconProps = Required<Pick<IButtonProps, "iconObj">>;
 type IconContainerSCProps = Pick<RequiredIconProps["iconObj"], "position">;
 

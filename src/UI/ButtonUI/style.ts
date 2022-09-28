@@ -20,6 +20,7 @@ interface IButtonSCProps extends Pick<IButtonProps, "isAutoWidth"> {
 const ButtonSC = styled("button")<IButtonSCProps>`
   ${({ isAutoWidth }) => isAutoWidth && AutoWidthCSS}
   ${({ isIcon }) => isIcon && IconButtonCSS}
+  min-height: 35px;
   position: relative;
   overflow: hidden;
   font-family: inherit;
@@ -29,7 +30,7 @@ const ButtonSC = styled("button")<IButtonSCProps>`
   cursor: pointer;
   padding: 5px 20px;
   border: 0;
-  border-radius: 10px;
+  border-radius: 5px;
   color: #ffffff;
   background-color: #00a0ab;
   transition: 0.2s all linear;

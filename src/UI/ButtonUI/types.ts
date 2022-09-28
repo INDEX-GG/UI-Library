@@ -26,4 +26,5 @@ export const DefaultButtonIconObj: ButtonIconObj = {
   position: "auto",
 };
 export const DefaultButtonButtonProps: ButtonProps = {};
-export const DefaultButtonStyledComponents: ButtonStyleComponents = {};
+export const DefaultButtonStyledComponents: ButtonStyleComponents =
+  ButtonUIStyleObj;

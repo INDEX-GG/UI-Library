@@ -1,51 +1,52 @@
 import React from "react";
-import "./button.css";
+import {
+  ButtonUIStyleObj,
+  DefaultButtonButtonProps,
+  DefaultButtonIconObj,
+  DefaultButtonIsAutoWidth,
+  DefaultButtonStyledComponents,
+  IButtonProps,
+} from "UI/ButtonUI/types";
+import { useButtonUI } from "UI/ButtonUI/useButtonUI";
 
-interface ButtonProps {
-  /**
-   * Is this the principal call to action on the page?
-   */
-  primary?: boolean;
-  /**
-   * What background color to use
-   */
-  backgroundColor?: string;
-  /**
-   * How large should the button be?
-   */
-  size?: "small" | "medium" | "large";
-  /**
-   * ButtonUI contents
-   */
-  label: string;
-  /**
-   * Optional click handler
-   */
-  onClick?: () => void;
-}
-
-/**
- * Primary UI component for user interaction
- */
 export const ButtonUI = ({
-  primary = false,
-  size = "medium",
-  backgroundColor,
-  label,
-  ...props
-}: ButtonProps) => {
-  const mode = primary
-    ? "storybook-button--primary"
-    : "storybook-button--secondary";
+  children,
+  iconObj = DefaultButtonIconObj,
+  isAutoWidth = DefaultButtonIsAutoWidth,
+  buttonProps = DefaultButtonButtonProps,
+  styledComponents = DefaultButtonStyledComponents,
+}: IButtonProps) => {
+  const { isBeforeIcon, isAfterIcon, isIcon, Icon, position } = useButtonUI({
+    iconObj,
+  });
+
+  const {
+    ButtonSC = DefaultButtonSC,
+    IconContainerSC = DefaultIconContainerSC,
+  } = styledComponents;
+
   return (
-    <button
+    <ButtonSC
       type="button"
-      className={["storybook-button", `storybook-button--${size}`, mode].join(
-        " ",
+      {...buttonProps}
+      isIcon={isIcon}
+      isAutoWidth={isAutoWidth}>
+      {isBeforeIcon && (
+        <IconContainerSC position={position}>
+          <Icon />
+        </IconContainerSC>
       )}
-      style={{ backgroundColor }}
-      {...props}>
-      {label}
-    </button>
+      {children}
+      {isAfterIcon && (
+        <IconContainerSC position={position}>
+          <Icon />
+        </IconContainerSC>
+      )}
+    </ButtonSC>
   );
 };
+
+const { ButtonSC: DefaultButtonSC, IconContainerSC: DefaultIconContainerSC } =
+  ButtonUIStyleObj;
+
+export default React.memo(ButtonUI);

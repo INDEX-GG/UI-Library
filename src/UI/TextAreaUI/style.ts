@@ -29,9 +29,12 @@ const ErrorMessageSC = styled("p")`
   line-height: 16px;
   font-weight: 400;
   color: ${errorColor};
-  position: absolute;
-  left: 10px;
-  bottom: -15px;
+  //? absolute variant
+  //position: absolute;
+  //left: 10px;
+  //bottom: -15px;
+  //? block variant
+  margin: 0 0 10px 10px;
 `;
 
 export const useTextAreaUIStyles = () => ({

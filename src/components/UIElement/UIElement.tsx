@@ -9,12 +9,15 @@ import { TextAreaUI } from "UI/TextAreaUI/TextAreaUI";
 import { TextAreaStylesObj } from "UI/TextAreaUI/types";
 import { ButtonUI } from "UI/ButtonUI/ButtonUI";
 import { ButtonUIStyleObj } from "UI/ButtonUI/types";
+import ModalUI from "UI/ModalUI/ModalUI";
+import { ModalStyleObj } from "UI/ModalUI/types";
 
-const InputUIElement = () => {
+const UIElement = () => {
   const [value, setValue] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [textArea, setTextArea] = useState<string>("");
   const ref = useRef<HTMLInputElement>(null);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
     <form>
@@ -75,13 +78,20 @@ const InputUIElement = () => {
       <ButtonUI
         isAutoWidth={false}
         buttonProps={{
-          onClick: () => {
-            console.log(123);
-          },
+          onClick: () => setIsOpen(true),
         }}
         styledComponents={{ ButtonSC: CustomButtonSC }}>
-        Сообщения
+        Открыть модальное окно
       </ButtonUI>
+      <ModalUI
+        isOpen={isOpen}
+        handleClose={() => setIsOpen(false)}
+        styleComponents={{
+          BackdoorSC: CustomBackdoorSC,
+          CloseButtonSC: CustomCloseButtonSC,
+        }}>
+        <h1>Custom Modal</h1>
+      </ModalUI>
     </form>
   );
 };
@@ -108,9 +118,16 @@ const TextAreaCustomErrorSC = styled(ErrorMessageSC)`
 const { ButtonSC } = ButtonUIStyleObj;
 
 const CustomButtonSC = styled(ButtonSC)`
-  width: 150px;
   height: 40px;
   border-radius: 5px;
 `;
 
-export default React.memo(InputUIElement);
+const { BackdoorSC, CloseButtonSC } = ModalStyleObj;
+const CustomBackdoorSC = styled(BackdoorSC)`
+  background-color: rgba(0, 99, 164, 0.4);
+`;
+const CustomCloseButtonSC = styled(CloseButtonSC)`
+  background-color: red;
+`;
+
+export default React.memo(UIElement);

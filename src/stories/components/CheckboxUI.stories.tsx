@@ -20,5 +20,3 @@ Default.args = {};
 Toggle.args = {
   type: "toggle",
 };
-
-Default.args = {};

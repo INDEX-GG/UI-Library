@@ -19,7 +19,7 @@ export default {
       description: "вид модального окна",
     },
     portalObj: {
-      description: "Объекь портала",
+      description: "Объект портала",
     },
     isVisibleClose: {
       description: "показать / скрыть иконку закрытия модального окна",

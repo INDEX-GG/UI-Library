@@ -7,6 +7,7 @@ import Title from "../Title/Title";
 import { CodeFieldsUI } from "UI/CodeFieldsUI/CodeFieldsUI";
 import { TextAreaUI } from "UI/TextAreaUI/TextAreaUI";
 import { TextAreaStylesObj } from "UI/TextAreaUI/types";
+import { ButtonUI } from "UI/ButtonUI/ButtonUI";
 
 const InputUIElement = () => {
   const [value, setValue] = useState<string>("");
@@ -71,6 +72,7 @@ const InputUIElement = () => {
           ErrorMessageSC: TextAreaCustomErrorSC,
         }}
       />
+      <ButtonUI isAutoWidth={false}>Сообщения</ButtonUI>
     </form>
   );
 };

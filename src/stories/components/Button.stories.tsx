@@ -1,42 +1,44 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
+import "css/global.css";
 import { ButtonUI } from "UI/ButtonUI/ButtonUI";
+import MessageIcon from "../../assets/icon/MessageIcon";
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
+//! EXTEND InputUI
 export default {
   title: "Example/ButtonUI",
   component: ButtonUI,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
-    backgroundColor: { control: "color" },
+    isAutoWidth: {
+      description: "width: 100%; height: 100%",
+    },
+    iconObj: {
+      description: "иконка в кнопке",
+    },
+    styledComponents: {
+      description: "кастомные стили",
+    },
   },
 } as ComponentMeta<typeof ButtonUI>;
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof ButtonUI> = (args) => (
-  <ButtonUI {...args} />
-);
+const TemplateCheckboxUI: ComponentStory<typeof ButtonUI> = (args) => {
+  return <ButtonUI {...args}>Кнопка</ButtonUI>;
+};
+export const Default = TemplateCheckboxUI.bind({});
+export const Disabled = TemplateCheckboxUI.bind({});
+export const Icon = TemplateCheckboxUI.bind({});
 
-export const Primary = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-Primary.args = {
-  primary: true,
-  label: "Button",
+Default.args = {
+  isAutoWidth: false,
 };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-  label: "Button",
+Disabled.args = {
+  buttonProps: {
+    disabled: true,
+  },
 };
 
-export const Large = Template.bind({});
-Large.args = {
-  size: "large",
-  label: "Button",
-};
-
-export const Small = Template.bind({});
-Small.args = {
-  size: "small",
-  label: "Button",
+Icon.args = {
+  iconObj: { Icon: MessageIcon, position: "left" },
+  isAutoWidth: false,
 };

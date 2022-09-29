@@ -8,7 +8,9 @@ type AvatarSize = "small" | "medium" | "large";
 type AvatarSrc = string;
 type AvatarSurname = string;
 type AvatarIsHref = boolean;
-type AvatarStyleComponents = Partial<typeof AvatarStyleObj>;
+type AvatarStyleComponents = Partial<
+  Omit<typeof AvatarStyleObj, "ContainerSC">
+>;
 
 export interface IAvatarProps {
   id: AvatarId;

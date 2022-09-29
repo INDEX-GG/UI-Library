@@ -30,13 +30,10 @@ export const AvatarUI = ({
 
   //? customStyles
   const {
-    ContainerSC = DefaultContainerSC,
     AvatarImageSC = DefaultAvatarImageSC,
     WrapperSC = DefaultWrapperSC,
     LettersSC = DefaultLettersSC,
   } = styleComponents;
-
-  console.log(styleComponents);
 
   //? dynamic tag
   const DynamicContainerSC = ContainerSC.withComponent(
@@ -67,7 +64,7 @@ export const AvatarUI = ({
 };
 
 const {
-  ContainerSC: DefaultContainerSC,
+  ContainerSC,
   AvatarImageSC: DefaultAvatarImageSC,
   WrapperSC: DefaultWrapperSC,
   LettersSC: DefaultLettersSC,

@@ -13,6 +13,7 @@ import ModalUI from "UI/ModalUI/ModalUI";
 import { ModalStyleObj } from "UI/ModalUI/types";
 import SkeletonUI from "UI/SkeletonUI/SkeletonUI";
 import { SkeletonStyleObj } from "UI/SkeletonUI/types";
+import AvatarUI from "UI/AvatarUI/AvatarUI";
 
 const UIElement = () => {
   const [value, setValue] = useState<string>("");
@@ -105,6 +106,14 @@ const UIElement = () => {
           }}
         />
       </div>
+      <Title>Avatar</Title>
+      <AvatarUI
+        id={1}
+        name="Rodion"
+        surname="Pyatigorskiy"
+        size="large"
+        src="https://api.lorem.space/image/game?w=150&h=220"
+      />
     </form>
   );
 };

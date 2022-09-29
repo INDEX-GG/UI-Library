@@ -36,6 +36,8 @@ export const AvatarUI = ({
     LettersSC = DefaultLettersSC,
   } = styleComponents;
 
+  console.log(styleComponents);
+
   //? dynamic tag
   const DynamicContainerSC = ContainerSC.withComponent(
     isAvatarHref ? "a" : "div",

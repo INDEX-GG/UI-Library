@@ -14,6 +14,7 @@ import { ModalStyleObj } from "UI/ModalUI/types";
 import SkeletonUI from "UI/SkeletonUI/SkeletonUI";
 import { SkeletonStyleObj } from "UI/SkeletonUI/types";
 import AvatarUI from "UI/AvatarUI/AvatarUI";
+import { AvatarStyleObj } from "UI/AvatarUI/types";
 
 const UIElement = () => {
   const [value, setValue] = useState<string>("");
@@ -106,14 +107,16 @@ const UIElement = () => {
           }}
         />
       </div>
-      <Title>Avatar</Title>
+      <Title>Custom Avatar</Title>
       <AvatarUI
         id={1}
         name="Rodion"
         surname="Pyatigorskiy"
         size="large"
-        src="https://api.lorem.space/image/game?w=150&h=220"
+        isAvatarHref={false}
+        styleComponents={{ WrapperSC: CustomAvatarWrapperSC }}
       />
+      <Title>Accordion</Title>
     </form>
   );
 };
@@ -161,6 +164,11 @@ const CustomSkeletonItemSC = styled(SkeletonItemSC)`
   background-color: lightgreen;
   border-radius: 50%;
   height: 50px;
+`;
+
+const { WrapperSC: AvatarWrapperSC } = AvatarStyleObj;
+const CustomAvatarWrapperSC = styled(AvatarWrapperSC)`
+  background-color: yellowgreen;
 `;
 
 export default React.memo(UIElement);

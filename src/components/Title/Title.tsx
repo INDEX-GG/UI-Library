@@ -16,7 +16,7 @@ const LinkSC = styled("a")`
   font-weight: 500;
   line-height: 21px;
   color: #00a0ab;
-  margin-bottom: 10px;
+  margin: 20px 0 10px;
 `;
 
 export default React.memo(Title);

@@ -11,6 +11,8 @@ import { ButtonUI } from "UI/ButtonUI/ButtonUI";
 import { ButtonUIStyleObj } from "UI/ButtonUI/types";
 import ModalUI from "UI/ModalUI/ModalUI";
 import { ModalStyleObj } from "UI/ModalUI/types";
+import SkeletonUI from "UI/SkeletonUI/SkeletonUI";
+import { SkeletonStyleObj } from "UI/SkeletonUI/types";
 
 const UIElement = () => {
   const [value, setValue] = useState<string>("");
@@ -61,7 +63,7 @@ const UIElement = () => {
         fieldsCount={4}
         callbackGetFinalCode={(code) => console.log(code)}
       />
-      <Title>Text Area</Title>
+      <Title>Custom Text Area</Title>
       <TextAreaUI
         isAutoHeight={true}
         error={{ isError: true, errorMessage: "123" }}
@@ -75,6 +77,7 @@ const UIElement = () => {
           ErrorMessageSC: TextAreaCustomErrorSC,
         }}
       />
+      <Title>Custom Button + Custom Modal</Title>
       <ButtonUI
         isAutoWidth={false}
         buttonProps={{
@@ -92,6 +95,16 @@ const UIElement = () => {
         }}>
         <h1>Custom Modal</h1>
       </ModalUI>
+      <Title>Skeleton Custom</Title>
+      <div style={{ width: "100px", height: "100px" }}>
+        <SkeletonUI
+          borderRadius="10px"
+          styleComponents={{
+            SkeletonSC: CustomSkeletonSC,
+            SkeletonItemSC: CustomSkeletonItemSC,
+          }}
+        />
+      </div>
     </form>
   );
 };
@@ -128,6 +141,17 @@ const CustomBackdoorSC = styled(BackdoorSC)`
 `;
 const CustomCloseButtonSC = styled(CloseButtonSC)`
   background-color: red;
+`;
+
+const { SkeletonSC, SkeletonItemSC } = SkeletonStyleObj;
+
+const CustomSkeletonSC = styled(SkeletonSC)`
+  background-color: green;
+`;
+const CustomSkeletonItemSC = styled(SkeletonItemSC)`
+  background-color: lightgreen;
+  border-radius: 50%;
+  height: 50px;
 `;
 
 export default React.memo(UIElement);

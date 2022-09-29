@@ -1,12 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 
 export const useAccordionUI = () => {
-  const [contentHeight, setIsContentHeight] = useState<number>(0);
-  const bodyRef = useRef<HTMLParagraphElement>(null);
+  const bodyRef = useRef<HTMLDivElement>(null);
+  const bodyHeight = bodyRef.current?.offsetHeight || 0;
 
-  useEffect(() => {
-    setIsContentHeight(bodyRef.current?.offsetHeight || 0);
-  }, []);
-
-  return { bodyRef, contentHeight };
+  return { bodyRef, bodyHeight };
 };

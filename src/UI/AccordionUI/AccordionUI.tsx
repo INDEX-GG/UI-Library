@@ -13,6 +13,10 @@ const AccordionUI = ({
   HeaderComponent,
   styleComponents = DefaultAccordionStyleComponents,
 }: IAccordionProps) => {
+  //? main-logic
+  const { bodyRef, bodyHeight } = useAccordionUI();
+
+  //? style
   const {
     ContainerSC = DefaultContainerSC,
     HeaderButtonSC = DefaultHeaderButtonSC,
@@ -20,16 +24,14 @@ const AccordionUI = ({
     BodySC = DefaultBodySC,
   } = styleComponents;
 
-  const { bodyRef, contentHeight } = useAccordionUI();
-
   return (
-    <ContainerSC style={{ opacity: contentHeight ? 1 : 0 }}>
+    <ContainerSC>
       <HeaderButtonSC type="button" onClick={handleChange}>
         <HeaderComponent />
-        <HeaderIconSC>+</HeaderIconSC>
+        <HeaderIconSC>{isOpen ? "-" : "+"}</HeaderIconSC>
       </HeaderButtonSC>
-      <BodySC height={contentHeight} isShow={isOpen} ref={bodyRef}>
-        {children}
+      <BodySC isShow={isOpen} height={bodyHeight}>
+        <div ref={bodyRef}>{children}</div>
       </BodySC>
     </ContainerSC>
   );

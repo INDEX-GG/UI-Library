@@ -126,6 +126,13 @@ const UIElement = () => {
         HeaderComponent={() => <h1>accordion 1</h1>}>
         <div style={{ padding: "120px 0" }}>
           <h1>ok</h1>
+          <h1>ok</h1>
+          <h1>ok</h1>
+          <h1>ok</h1>
+          <h1>ok</h1>
+          <h1>ok</h1>
+          <h1>ok</h1>
+          <h1>ok</h1>
         </div>
       </AccordionUI>
       <AccordionUI

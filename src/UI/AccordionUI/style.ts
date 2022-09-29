@@ -14,6 +14,7 @@ const HeaderButtonSC = styled("button")`
   justify-content: space-between;
   background-color: red;
 `;
+
 const HeaderIconSC = styled("div")`
   width: 20px;
   background-color: blue;
@@ -24,12 +25,11 @@ const BodyShowCSS = css`
   visibility: visible;
 `;
 
-const BodySC = styled("p")<{ isShow: boolean; height: number }>`
+const BodySC = styled("div")<{ isShow: boolean; height: number }>`
   opacity: 0;
-  height: ${({ height, isShow }) =>
-    isShow && height ? `${height}px` : !isShow && height ? "0px" : "auto"};
   overflow: hidden;
   transition: all 0.2s ease-in-out;
+  height: ${({ isShow, height }) => (isShow ? height : 0)}px;
   ${({ isShow }) => isShow && BodyShowCSS};
 `;
 

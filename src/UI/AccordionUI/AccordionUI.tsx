@@ -2,19 +2,23 @@ import React from "react";
 import { useAccordionUI } from "UI/AccordionUI/useAccordionUI";
 import {
   AccordionStyleObj,
+  DefaultAccordionDuration,
   DefaultAccordionStyleComponents,
   IAccordionProps,
 } from "UI/AccordionUI/types";
+import ArrowCloseIcon from "./assets/icon/ArrowCloseIcon/ArrowCloseIcon";
+import ArrowOpenIcon from "./assets/icon/ArrowOpenIcon/ArrowOpenIcon";
 
-const AccordionUI = ({
+export const AccordionUI = ({
   isOpen,
   children,
   handleChange,
   HeaderComponent,
+  duration = DefaultAccordionDuration,
   styleComponents = DefaultAccordionStyleComponents,
 }: IAccordionProps) => {
   //? main-logic
-  const { bodyRef, bodyHeight } = useAccordionUI();
+  const { height, bodyRef } = useAccordionUI({ isOpen, children });
 
   //? style
   const {
@@ -22,16 +26,19 @@ const AccordionUI = ({
     HeaderButtonSC = DefaultHeaderButtonSC,
     HeaderIconSC = DefaultHeaderIconSC,
     BodySC = DefaultBodySC,
+    ContentSC = DefaultContentSC,
   } = styleComponents;
 
   return (
-    <ContainerSC>
+    <ContainerSC id="accordion">
       <HeaderButtonSC type="button" onClick={handleChange}>
         <HeaderComponent />
-        <HeaderIconSC>{isOpen ? "-" : "+"}</HeaderIconSC>
+        <HeaderIconSC>
+          {isOpen ? <ArrowCloseIcon /> : <ArrowOpenIcon />}
+        </HeaderIconSC>
       </HeaderButtonSC>
-      <BodySC isShow={isOpen} height={bodyHeight}>
-        <div ref={bodyRef}>{children}</div>
+      <BodySC height={height} duration={duration} isShow={isOpen}>
+        <ContentSC ref={bodyRef}>{children}</ContentSC>
       </BodySC>
     </ContainerSC>
   );
@@ -42,6 +49,7 @@ const {
   HeaderButtonSC: DefaultHeaderButtonSC,
   HeaderIconSC: DefaultHeaderIconSC,
   BodySC: DefaultBodySC,
+  ContentSC: DefaultContentSC,
 } = AccordionStyleObj;
 
 export default React.memo(AccordionUI);

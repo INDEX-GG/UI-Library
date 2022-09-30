@@ -21,10 +21,16 @@ const UIElement = () => {
   const [value, setValue] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [textArea, setTextArea] = useState<string>("");
-  const ref = useRef<HTMLInputElement>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isOpenAccordion, setIsOpenAccordion] = useState<boolean>(false);
   const [isOpenAccordion2, setIsOpenAccordion2] = useState<boolean>(false);
+  const [isOpenAccordion2Inner, setIsOpenAccordion2Inner] =
+    useState<boolean>(false);
+  const [isOpenAccordion3Inner, setIsOpenAccordion3Inner] =
+    useState<boolean>(false);
+  const [isOpenAccordion4Inner, setIsOpenAccordion4Inner] =
+    useState<boolean>(false);
+  const ref = useRef<HTMLInputElement>(null);
 
   return (
     <form>
@@ -124,58 +130,127 @@ const UIElement = () => {
         isOpen={isOpenAccordion}
         handleChange={() => setIsOpenAccordion((prevState) => !prevState)}
         HeaderComponent={() => <h1>accordion 1</h1>}>
-        <div style={{ padding: "120px 0" }}>
-          <h1>ok</h1>
-          <h1>ok</h1>
-          <h1>ok</h1>
-          <h1>ok</h1>
-          <h1>ok</h1>
-          <h1>ok</h1>
-          <h1>ok</h1>
-          <h1>ok</h1>
-        </div>
+        <p style={{ fontSize: "42px" }}>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium,
+          amet at atque ea quasi qui quia quidem quod rem totam ut vitae
+          voluptatibus? Deleniti deserunt dolore doloribus nihil quo? Minus!
+        </p>
       </AccordionUI>
       <AccordionUI
         isOpen={isOpenAccordion2}
         handleChange={() => setIsOpenAccordion2((prevState) => !prevState)}
         HeaderComponent={() => <h1>accordion 2</h1>}>
-        <>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam
-          consequuntur ex expedita illo, illum in iusto nam necessitatibus
-          possimus quisquam, sequi similique suscipit, vero. Commodi deleniti
-          expedita labore nisi porro?
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus,
-            accusantium doloribus incidunt iure molestiae nobis optio quos
-            ratione tempore unde. Consequuntur cumque eius eos fuga iure,
-            nostrum quo repellendus voluptatibus?
-          </div>
-          <div>
-            Accusamus animi architecto aspernatur cum distinctio ea ex neque
-            quas tenetur vitae. Architecto aspernatur, doloremque doloribus
-            error et eveniet inventore quibusdam voluptatibus. Ab consequuntur
-            fugit ipsa maiores rem repudiandae vero!
-          </div>
-          <div>
-            Adipisci aperiam, cumque delectus ea eaque eligendi eos fuga maxime
-            nostrum odio perferendis quae reiciendis sequi tenetur, voluptatum?
-            Aspernatur consequuntur dicta eaque nam nobis non quidem quod
-            suscipit. Iure, mollitia.
-          </div>
-          <div>
-            Alias consequuntur doloribus fuga fugit id ipsum itaque magni
-            necessitatibus, porro quaerat quas quia quisquam sed similique
-            soluta suscipit tempore. Atque aut deserunt hic incidunt molestiae
-            perspiciatis placeat veritatis voluptates!
-          </div>
-          <div>
-            Aliquam aliquid atque blanditiis delectus dicta, dignissimos dolore
-            dolorem eius eos expedita harum iste, labore molestiae nostrum
-            obcaecati porro, quasi quis quod rem sequi sunt totam ut.
-            Accusantium, debitis enim!
-          </div>
-        </>
+        <p style={{ fontSize: "36px" }}>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium,
+          amet at atque ea quasi qui quia quidem quod rem totam ut vitae
+          voluptatibus? Deleniti deserunt dolore doloribus nihil quo? Minus!
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet
+          deleniti deserunt, dolor dolorem enim illo, inventore odio quae
+          repellendus sapiente soluta, voluptas. Dolores doloribus eveniet illo
+          modi mollitia! Cupiditate, vitae! Lorem ipsum dolor sit amet,
+          consectetur adipisicing elit. Adipisci aperiam assumenda consequuntur
+          distinctio enim facere ipsum laborum libero modi molestias nemo non
+          nulla odio officiis perferendis, quam ratione reprehenderit ullam?
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam aut
+          cumque deserunt dolore, dolorum sed ullam ut? Beatae dolor eius
+          eveniet maiores obcaecati perferendis quibusdam quod quos vero
+          voluptates, voluptatibus! Lorem ipsum dolor sit amet, consectetur
+          adipisicing elit. Ad adipisci aliquam animi commodi deserunt
+          distinctio dolores esse excepturi explicabo facere, laudantium minima
+          modi nobis placeat recusandae tenetur veritatis! Praesentium,
+          veritatis.
+        </p>
+        <AccordionUI
+          isOpen={isOpenAccordion2Inner}
+          handleChange={() =>
+            setIsOpenAccordion2Inner((prevState) => !prevState)
+          }
+          HeaderComponent={() => <h1>accordion 2 inner</h1>}>
+          <p>
+            Inner Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Cupiditate dolor dolore itaque quisquam similique suscipit,
+            voluptates. Aliquid aperiam deserunt dignissimos eius eum hic illum
+            ipsam maiores mollitia, quisquam velit, voluptas! Lorem ipsum dolor
+            sit amet, consectetur adipisicing elit. Commodi deserunt dicta
+            dolores eius ipsum magni minima mollitia nobis perferendis quae,
+            quia quis repudiandae sit unde voluptate! Asperiores nemo sunt
+            velit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Animi cupiditate ea enim esse eveniet expedita, harum libero magni,
+            natus pariatur perspiciatis provident quia repellendus reprehenderit
+            sit tenetur, voluptatibus! Exercitationem, sed! Lorem ipsum dolor
+            sit amet, consectetur adipisicing elit. Aliquam, laborum quasi!
+            Accusantium delectus esse odit qui soluta? Ad dolor dolore fugit
+            molestias nulla omnis repudiandae sunt tempore unde velit.
+            Similique.
+          </p>
+        </AccordionUI>
+        <h1>ok</h1>
+        <h1>ok</h1>
+        <AccordionUI
+          isOpen={isOpenAccordion3Inner}
+          handleChange={() =>
+            setIsOpenAccordion3Inner((prevState) => !prevState)
+          }
+          HeaderComponent={() => <h1>accordion 3 inner</h1>}>
+          <p>
+            Inner Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Cupiditate dolor dolore itaque quisquam similique suscipit,
+            voluptates. Aliquid aperiam deserunt dignissimos eius eum hic illum
+            ipsam maiores mollitia, quisquam velit, voluptas! Lorem ipsum dolor
+            sit amet, consectetur adipisicing elit. Commodi deserunt dicta
+            dolores eius ipsum magni minima mollitia nobis perferendis quae,
+            quia quis repudiandae sit unde voluptate! Asperiores nemo sunt
+            velit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Animi cupiditate ea enim esse eveniet expedita, harum libero magni,
+            natus pariatur perspiciatis provident quia repellendus reprehenderit
+            sit tenetur, voluptatibus! Exercitationem, sed! Lorem ipsum dolor
+            sit amet, consectetur adipisicing elit. Aliquam, laborum quasi!
+            Accusantium delectus esse odit qui soluta? Ad dolor dolore fugit
+            molestias nulla omnis repudiandae sunt tempore unde velit.
+            Similique.
+          </p>
+          <AccordionUI
+            isOpen={isOpenAccordion4Inner}
+            handleChange={() =>
+              setIsOpenAccordion4Inner((prevState) => !prevState)
+            }
+            HeaderComponent={() => <h1>accordion 1 inner inner</h1>}>
+            <p>
+              Inner Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Cupiditate dolor dolore itaque quisquam similique suscipit,
+              voluptates. Aliquid aperiam deserunt dignissimos eius eum hic
+              illum ipsam maiores mollitia, quisquam velit, voluptas! Lorem
+              ipsum dolor sit amet, consectetur adipisicing elit. Commodi
+              deserunt dicta dolores eius ipsum magni minima mollitia nobis
+              perferendis quae, quia quis repudiandae sit unde voluptate!
+              Asperiores nemo sunt velit. Lorem ipsum dolor sit amet,
+              consectetur adipisicing elit. Animi cupiditate ea enim esse
+              eveniet expedita, harum libero magni, natus pariatur perspiciatis
+              provident quia repellendus reprehenderit sit tenetur,
+              voluptatibus! Exercitationem, sed! Lorem ipsum dolor sit amet,
+              consectetur adipisicing elit. Aliquam, laborum quasi! Accusantium
+              delectus esse odit qui soluta? Ad dolor dolore fugit molestias
+              nulla omnis repudiandae sunt tempore unde velit. Similique.
+            </p>
+          </AccordionUI>
+        </AccordionUI>
       </AccordionUI>
+      <h1>bad</h1>
+      <h1>bad</h1>
+      <h1>bad</h1>
+      <h1>bad</h1>
+      <h1>bad</h1>
+      <h1>bad</h1>
+      <h1>bad</h1>
+      <h1>bad</h1>
+      <h1>bad</h1>
+      <h1>bad</h1>
+      <h1>bad</h1>
+      <h1>bad</h1>
+      <h1>bad</h1>
+      <h1>bad</h1>
+      <h1>bad</h1>
+      <h1>bad</h1>
       <h1>bad</h1>
     </form>
   );

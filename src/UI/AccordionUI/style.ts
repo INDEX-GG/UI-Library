@@ -2,7 +2,8 @@ import styled, { css } from "styled-components";
 
 const ContainerSC = styled("div")`
   width: 100%;
-  background-color: lightgreen;
+  background-color: #c2c2c2;
+  border: 1px solid red;
 `;
 
 const HeaderButtonSC = styled("button")`
@@ -12,29 +13,37 @@ const HeaderButtonSC = styled("button")`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: red;
+  padding: 10px;
 `;
 
 const HeaderIconSC = styled("div")`
-  width: 20px;
-  background-color: blue;
+  width: 40px;
 `;
 
 const BodyShowCSS = css`
-  opacity: 1;
   visibility: visible;
 `;
 
-const BodySC = styled("div")<{ isShow: boolean; height: number }>`
-  opacity: 0;
+const BodySC = styled("div")<{
+  isShow: boolean;
+  height: number;
+  duration: number;
+}>`
+  // animation style
   overflow: hidden;
-  transition: all 0.2s ease-in-out;
-  height: ${({ isShow, height }) => (isShow ? height : 0)}px;
+  transition: all ${({ duration }) => duration}s ease-in-out;
+  max-height: ${({ isShow, height }) => (isShow ? height : 0)}px;
+  // other style
   ${({ isShow }) => isShow && BodyShowCSS};
+`;
+
+const ContentSC = styled("div")`
+  padding: 20px;
 `;
 
 export const useAccordionUIStyles = () => ({
   BodySC,
+  ContentSC,
   ContainerSC,
   HeaderIconSC,
   HeaderButtonSC,

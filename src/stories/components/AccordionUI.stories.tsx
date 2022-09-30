@@ -9,7 +9,7 @@ export default {
   component: AccordionUI,
   argTypes: {
     isOpen: {
-      description: "Открытый / закрытый коллапс",
+      description: "открытый / закрытый",
     },
     handleChange: {
       description: "setState isOpen",

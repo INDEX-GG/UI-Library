@@ -30,7 +30,6 @@ export const AvatarUI = ({
 
   //? customStyles
   const {
-    ContainerSC = DefaultContainerSC,
     AvatarImageSC = DefaultAvatarImageSC,
     WrapperSC = DefaultWrapperSC,
     LettersSC = DefaultLettersSC,
@@ -65,7 +64,7 @@ export const AvatarUI = ({
 };
 
 const {
-  ContainerSC: DefaultContainerSC,
+  ContainerSC,
   AvatarImageSC: DefaultAvatarImageSC,
   WrapperSC: DefaultWrapperSC,
   LettersSC: DefaultLettersSC,

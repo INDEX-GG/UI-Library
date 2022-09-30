@@ -5,9 +5,10 @@ export const ModalStyleObj = useModalUIStyles();
 
 type PortalName = "#root";
 
-type type = "modal" | "popup" | "fullscreen";
+type type = "modal" | "popup" | "fullscreen" | "drawer";
+type ModalIsAnimationEffect = boolean;
 type ModalPortalObj = { isPortal: boolean; name?: PortalName };
-type ModalIsVisibleClose = boolean;
+type ModalTypeCloseButton = "buttonName" | "buttonIcon" | "";
 type ModalStyleComponents = Partial<typeof ModalStyleObj>;
 
 export interface IModalProps {
@@ -15,8 +16,9 @@ export interface IModalProps {
   isOpen: boolean;
   handleClose: () => void;
   type?: type;
+  isAnimationEffect?: ModalIsAnimationEffect;
   portalObj?: ModalPortalObj;
-  isVisibleClose?: ModalIsVisibleClose;
+  typeCloseButton?: ModalTypeCloseButton;
   styleComponents?: ModalStyleComponents;
 }
 
@@ -24,10 +26,11 @@ export type ModalContentProps = Required<
   Omit<IModalProps, "portalObj" | "isOpen">
 >;
 
+export const DefaultModalType: type = "modal";
+export const DefaultModalIsAnimationEffect: ModalIsAnimationEffect = true;
 export const DefaultModalPortalObj: ModalPortalObj = {
   isPortal: true,
   name: "#root",
 };
-export const DefaultModalIsVisibleClose: ModalIsVisibleClose = true;
-export const DefaultModalType: type = "modal";
+export const DefaultModalTypeCloseButton: ModalTypeCloseButton = "buttonName";
 export const DefaultModalStyleComponents: ModalStyleComponents = ModalStyleObj;

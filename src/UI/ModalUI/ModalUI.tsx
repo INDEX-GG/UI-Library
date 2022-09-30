@@ -1,9 +1,10 @@
 import React from "react";
 import {
-  DefaultModalIsVisibleClose,
+  DefaultModalIsAnimationEffect,
   DefaultModalPortalObj,
   DefaultModalStyleComponents,
   DefaultModalType,
+  DefaultModalTypeCloseButton,
   IModalProps,
 } from "UI/ModalUI/types";
 import { useModalUI } from "UI/ModalUI/useModalUI";
@@ -16,15 +17,17 @@ export const ModalUI = ({
   children,
   type = DefaultModalType,
   portalObj = DefaultModalPortalObj,
-  isVisibleClose = DefaultModalIsVisibleClose,
+  typeCloseButton = DefaultModalTypeCloseButton,
+  isAnimationEffect = DefaultModalIsAnimationEffect,
   styleComponents = DefaultModalStyleComponents,
 }: IModalProps) => {
   const { isPortal, portalName, modalContentProps } = useModalUI({
-    isOpen,
     type,
+    isOpen,
     children,
     portalObj,
-    isVisibleClose,
+    typeCloseButton,
+    isAnimationEffect,
     handleClose,
     styleComponents,
   } as Required<IModalProps>);

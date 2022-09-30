@@ -1,14 +1,9 @@
 import { IModalProps, ModalContentProps } from "UI/ModalUI/types";
 import { useEffect } from "react";
 
-export const useModalUI = ({
-  type,
-  isOpen,
-  portalObj,
-  handleClose,
-  isVisibleClose,
-  styleComponents,
-}: Required<IModalProps>) => {
+export const useModalUI = (props: Required<IModalProps>) => {
+  const { isOpen, portalObj, handleClose } = props;
+
   const { isPortal, name: portalName } = portalObj;
 
   //? close keydown
@@ -31,12 +26,7 @@ export const useModalUI = ({
     };
   }, [isOpen]);
 
-  const modalContentProps: Omit<ModalContentProps, "children"> = {
-    type,
-    handleClose,
-    isVisibleClose,
-    styleComponents,
-  };
+  const modalContentProps: Omit<ModalContentProps, "children"> = props;
 
   return { isPortal, portalName, modalContentProps };
 };

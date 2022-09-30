@@ -21,8 +21,11 @@ export default {
     portalObj: {
       description: "Объект портала",
     },
-    isVisibleClose: {
-      description: "показать / скрыть иконку закрытия модального окна",
+    typeCloseButton: {
+      description: "тип закртыия модального окна",
+    },
+    isAnimationEffect: {
+      description: "Анимация открытия",
     },
     styleComponents: {
       description: "изменение дефолтных стилей",

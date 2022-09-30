@@ -3,11 +3,11 @@ import { IModalProps } from "UI/ModalUI/types";
 
 const visibleAnimation = keyframes`
   from {
-    margin-top: 50px;
+    margin-top: 80px;
     opacity: 0;
   }
   to {
-    margin-top: 0;
+    margin-top: 30px;
     opacity: 1;
   }
 `;

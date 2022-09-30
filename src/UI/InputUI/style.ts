@@ -12,7 +12,6 @@ interface IInput extends Partial<IInputIcon> {
 
 const mainColor = "#00a0ab";
 const errorColor = "red";
-const borderRadius = 10;
 
 const ContainerSC = styled("div")`
   width: 100%;
@@ -22,7 +21,6 @@ const ContainerSC = styled("div")`
 const InputContainerSC = styled("div")`
   position: relative;
   overflow: hidden;
-  border-radius: ${borderRadius}px;
 `;
 
 const InputSC = styled("input")<IInput>`
@@ -30,7 +28,7 @@ const InputSC = styled("input")<IInput>`
   font-size: 16px;
   line-height: 18px;
   border: 1px solid ${({ isError }) => (isError ? errorColor : mainColor)};
-  border-radius: inherit;
+  border-radius: 10px;
   padding: ${({ iconPosition = "left", iconWidth = 10 }) =>
     iconPosition == "right"
       ? `10px ${iconWidth + 10}px  10px 10px`

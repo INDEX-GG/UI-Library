@@ -1,16 +1,27 @@
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { IModalProps } from "UI/ModalUI/types";
+
+const visibleAnimation = keyframes`
+  from {
+    margin-top: 50px;
+    opacity: 0;
+  }
+  to {
+    margin-top: 0;
+    opacity: 1;
+  }
+`;
 
 const PopupCSS = css`
   border-radius: 10px;
+  margin: 30px;
   width: 300px;
-  height: 300px;
 `;
 
 const ModalCSS = css`
   border-radius: 10px;
-  min-width: 500px;
-  min-height: 500px;
+  margin: 30px;
+  width: 500px;
 `;
 
 const FullscreenCSS = css`
@@ -29,10 +40,15 @@ const ContainerSC = styled("div")`
   align-items: center;
 `;
 
-const WrapperSC = styled("div")<Pick<IModalProps, "type">>`
+const WrapperSC = styled("div")<
+  Pick<IModalProps, "type" | "isAnimationEffect">
+>`
+  background-color: #ffffff;
   position: relative;
   z-index: 2;
-  background-color: #ffffff;
+  animation: ${({ isAnimationEffect, type }) =>
+      isAnimationEffect && type !== "fullscreen" ? visibleAnimation : "none"}
+    0.3s linear;
   ${({ type }) =>
     type === "popup"
       ? PopupCSS
@@ -43,10 +59,6 @@ const WrapperSC = styled("div")<Pick<IModalProps, "type">>`
       : null}
 `;
 
-const InnerWrapperSC = styled("div")`
-  padding: 20px;
-`;
-
 const BackdoorSC = styled("div")`
   width: 100%;
   height: 100%;
@@ -55,6 +67,22 @@ const BackdoorSC = styled("div")`
   top: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
+`;
+
+const InnerWrapperSC = styled("div")`
+  padding: 20px;
+  height: 120%;
+  display: flex;
+  flex-direction: column;
+`;
+
+const HeaderFullscreenModalSC = styled("div")`
+  background-color: #00a0ab;
+  padding: 20px;
+`;
+
+const ChildrenContainerSC = styled("div")`
+  flex-grow: 1;
 `;
 
 const CloseButtonSC = styled("button")`
@@ -70,9 +98,20 @@ const CloseButtonSC = styled("button")`
   z-index: 2;
 `;
 
-const HeaderFullscreenModalSC = styled("div")`
-  background-color: #00a0ab;
-  padding: 20px;
+const CloseButtonNameSC = styled("button")`
+  // button
+  width: 100%;
+  padding: 10px 0;
+  border: 0;
+  border-radius: 40px;
+  background-color: #585858;
+  cursor: pointer;
+  // button-text
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 21px;
+  text-align: center;
 `;
 
 export const useModalUIStyles = () => ({
@@ -80,6 +119,8 @@ export const useModalUIStyles = () => ({
   WrapperSC,
   BackdoorSC,
   InnerWrapperSC,
-  CloseButtonSC,
   HeaderFullscreenModalSC,
+  ChildrenContainerSC,
+  CloseButtonSC,
+  CloseButtonNameSC,
 });

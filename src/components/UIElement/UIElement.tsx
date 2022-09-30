@@ -99,6 +99,9 @@ const UIElement = () => {
       </ButtonUI>
       <ModalUI
         isOpen={isOpen}
+        isAnimationEffect={true}
+        type="modal"
+        typeCloseButton="buttonName"
         handleClose={() => setIsOpen(false)}
         styleComponents={{
           BackdoorSC: CustomBackdoorSC,
@@ -284,7 +287,7 @@ const CustomButtonSC = styled(ButtonSC)`
 
 const { BackdoorSC, CloseButtonSC } = ModalStyleObj;
 const CustomBackdoorSC = styled(BackdoorSC)`
-  background-color: rgba(0, 99, 164, 0.4);
+  background-color: rgb(0, 0, 0, 0.7);
 `;
 const CustomCloseButtonSC = styled(CloseButtonSC)`
   background-color: red;

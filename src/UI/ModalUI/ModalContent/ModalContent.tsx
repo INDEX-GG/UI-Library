@@ -25,7 +25,7 @@ const ModalContent = (props: ModalContentProps) => {
     useModalContent(props);
 
   return (
-    <ContainerSC>
+    <ContainerSC isAnimationEffect={isAnimationEffect}>
       <WrapperSC type={type} isAnimationEffect={isAnimationEffect}>
         {isVisibleHeader && (
           <ModalHeader

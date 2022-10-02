@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import "css/global.css";
 import { ModalUI } from "UI/ModalUI/ModalUI";
@@ -39,6 +39,11 @@ const TemplateCheckboxUI: ComponentStory<typeof ModalUI> = ({
   ...otherArgs
 }) => {
   const [customIsOpen, setCustomIsOpen] = useState<boolean>(isOpen);
+
+  useEffect(() => {
+    setCustomIsOpen(isOpen);
+  }, [isOpen]);
+
   return (
     <>
       <ButtonUI

@@ -5,7 +5,7 @@ export const ModalStyleObj = useModalUIStyles();
 
 type PortalName = "#root";
 
-type type = "modal" | "popup" | "fullscreen" | "drawer";
+type type = "modal" | "popup" | "fullscreen";
 type ModalIsAnimationEffect = boolean;
 type ModalPortalObj = { isPortal: boolean; name?: PortalName };
 type ModalTypeCloseButton = "buttonName" | "buttonIcon" | "";

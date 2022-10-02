@@ -3,12 +3,19 @@ import { IModalProps } from "UI/ModalUI/types";
 
 const visibleAnimation = keyframes`
   from {
-    margin-top: 80px;
     opacity: 0;
   }
   to {
-    margin-top: 30px;
     opacity: 1;
+  }
+`;
+
+const uppAnimation = keyframes`
+  from {
+    margin-top: 80px;
+  }
+  to {
+    margin-top: 30px;
   }
 `;
 
@@ -29,7 +36,9 @@ const FullscreenCSS = css`
   height: 100%;
 `;
 
-const ContainerSC = styled("div")`
+type AnimationType = Pick<IModalProps, "type" | "isAnimationEffect">;
+
+const ContainerSC = styled("div")<AnimationType>`
   width: 100%;
   height: 100%;
   position: fixed;
@@ -38,16 +47,17 @@ const ContainerSC = styled("div")`
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: ${({ isAnimationEffect, type }) =>
+      isAnimationEffect && type !== "fullscreen" ? visibleAnimation : "none"}
+    0.3s linear;
 `;
 
-const WrapperSC = styled("div")<
-  Pick<IModalProps, "type" | "isAnimationEffect">
->`
+const WrapperSC = styled("div")<AnimationType>`
   background-color: #ffffff;
   position: relative;
   z-index: 2;
   animation: ${({ isAnimationEffect, type }) =>
-      isAnimationEffect && type !== "fullscreen" ? visibleAnimation : "none"}
+      isAnimationEffect && type !== "fullscreen" ? uppAnimation : "none"}
     0.3s linear;
   ${({ type }) =>
     type === "popup"

@@ -4,7 +4,6 @@ import {
   DefaultButtonButtonProps,
   DefaultButtonIconObj,
   DefaultButtonIsAutoWidth,
-  DefaultButtonIsRippleEffect,
   DefaultButtonStyledComponents,
   IButtonProps,
 } from "UI/ButtonUI/types";
@@ -13,17 +12,14 @@ import "./animation.css";
 
 export const ButtonUI = ({
   children,
-  isRippleEffect = DefaultButtonIsRippleEffect,
   iconObj = DefaultButtonIconObj,
   isAutoWidth = DefaultButtonIsAutoWidth,
   buttonProps = DefaultButtonButtonProps,
   styledComponents = DefaultButtonStyledComponents,
 }: IButtonProps) => {
-  const { isBeforeIcon, isAfterIcon, isIcon, Icon, position, createRipple } =
-    useButtonUI({
-      iconObj,
-      isRippleEffect,
-    });
+  const { isBeforeIcon, isAfterIcon, isIcon, Icon, position } = useButtonUI({
+    iconObj,
+  });
 
   const {
     ButtonSC = DefaultButtonSC,
@@ -35,8 +31,7 @@ export const ButtonUI = ({
       type="button"
       {...buttonProps}
       isIcon={isIcon}
-      isAutoWidth={isAutoWidth}
-      onMouseDown={createRipple}>
+      isAutoWidth={isAutoWidth}>
       {isBeforeIcon && (
         <IconContainerSC position={position}>
           <Icon />

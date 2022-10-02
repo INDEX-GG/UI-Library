@@ -9,9 +9,6 @@ export default {
   title: "Example/ButtonUI",
   component: ButtonUI,
   argTypes: {
-    isRippleEffect: {
-      description: "material design анимация",
-    },
     isAutoWidth: {
       description: "width: 100%; height: 100%",
     },

@@ -255,6 +255,7 @@ const UIElement = () => {
       <h1>bad</h1>
       <h1>bad</h1>
       <h1>bad</h1>
+      <ButtonUI>123</ButtonUI>
     </form>
   );
 };

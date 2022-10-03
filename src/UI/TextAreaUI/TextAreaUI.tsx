@@ -34,10 +34,9 @@ export const TextAreaUI = forwardRef<HTMLTextAreaElement, ITextAreaUIProps>(
       ? (otherTextAreaRef as TextAreaRefType)
       : (useRef<HTMLTextAreaElement>(null) as TextAreaRefType);
 
-    //? only isAutoHeight === true
-    if (isAutoHeight) {
-      useTextAreaUI({ textAreaProps, textAreaRef });
-    }
+    // ? only isAutoHeight
+    useTextAreaUI({ textAreaProps, textAreaRef });
+
     return (
       <ContainerSC>
         <TextAreaSC

@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import "css/global.css";
 import { TextAreaUI } from "UI/TextAreaUI/TextAreaUI";
+import { useArgs } from "@storybook/client-api";
 
 //! EXTEND InputUI
 export default {
@@ -18,7 +19,18 @@ export default {
 } as ComponentMeta<typeof TextAreaUI>;
 
 const TemplateTextAreaUI: ComponentStory<typeof TextAreaUI> = (args) => {
-  return <TextAreaUI {...args} />;
+  const [{ value }, changeArgs] = useArgs();
+
+  return (
+    <TextAreaUI
+      {...args}
+      textAreaProps={{
+        ...args.textAreaProps,
+        value: value,
+        onChange: (e) => changeArgs({ value: e.target.value }),
+      }}
+    />
+  );
 };
 export const Default = TemplateTextAreaUI.bind({});
 
@@ -26,5 +38,6 @@ Default.args = {
   isAutoHeight: true,
   textAreaProps: {
     placeholder: "TextArea Placeholder",
+    value: "",
   },
 };

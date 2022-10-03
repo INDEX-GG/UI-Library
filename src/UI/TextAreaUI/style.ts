@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
-const mainColor = "#00a0ab";
+const mainColor = "#f5f5f5";
+const secondaryColor = "#C7C7C7";
 const errorColor = "red";
 
 const ContainerSC = styled("div")`
@@ -14,14 +15,20 @@ const TextAreaSC = styled("textarea")<{
   resize: none;
   overflow: ${({ isAutoHeight }) => (isAutoHeight ? "hidden" : "auto")};
   width: 100%;
-  min-height: 200px;
+  min-height: 256px;
   border-radius: 8px;
-  border: 1px solid ${({ isError }) => (isError ? errorColor : mainColor)};
-  padding: 10px;
+  background-color: ${mainColor};
+  border: 1px solid ${({ isError }) => (isError ? errorColor : secondaryColor)};
+  padding: 17px 25px 17px;
   font-size: 16px;
   line-height: 20px;
   font-weight: 400;
   font-family: inherit;
+  &::placeholder {
+    font-size: 16px;
+    line-height: 21px;
+    color: ${secondaryColor};
+  }
 `;
 
 const ErrorMessageSC = styled("p")`

@@ -10,8 +10,10 @@ interface IInput extends Partial<IInputIcon> {
   isError: boolean;
 }
 
-const mainColor = "#00a0ab";
+const mainColor = "#C7C7C7";
 const errorColor = "red";
+const inputPaddingVertical = 25;
+const inputPaddingHorizontal = 20;
 
 const ContainerSC = styled("div")`
   width: 100%;
@@ -25,16 +27,22 @@ const InputContainerSC = styled("div")`
 
 const InputSC = styled("input")<IInput>`
   width: 100%;
+  min-height: 60px;
   font-size: 16px;
-  line-height: 18px;
-  border: 1px solid ${({ isError }) => (isError ? errorColor : mainColor)};
+  line-height: 20px;
   border-radius: 10px;
+  background-color: #f5f5f5;
+  border: 1px solid ${({ isError }) => (isError ? errorColor : mainColor)};
   padding: ${({ iconPosition = "left", iconWidth = 10 }) =>
     iconPosition == "right"
-      ? `10px ${iconWidth + 10}px  10px 10px`
+      ? `${inputPaddingHorizontal}px ${
+          iconWidth + 10
+        }px ${inputPaddingHorizontal}px ${inputPaddingVertical}px`
       : iconPosition === "left"
-      ? `10px 10px 10px ${iconWidth + 10}px`
-      : "10px"};
+      ? `${inputPaddingHorizontal}px ${inputPaddingVertical}px ${inputPaddingHorizontal}px ${
+          iconWidth + 10
+        }px`
+      : `${inputPaddingHorizontal}px ${inputPaddingVertical}px`};
   &::placeholder {
     color: ${({ isError }) => (isError ? errorColor : mainColor)};
     font-size: inherit;

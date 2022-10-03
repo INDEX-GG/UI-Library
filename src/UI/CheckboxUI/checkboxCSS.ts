@@ -1,7 +1,7 @@
 import { css } from "styled-components";
 
-const checkboxActiveColor = "#00A0AB";
-const checkboxDisabledColor = "#ffffff";
+const checkboxActiveColor = "#585858";
+const checkboxDisabledColor = "#E9E9E9";
 const checkboxWidth = 30;
 const checkboxHeight = 30;
 const checkboxRadius = 20;
@@ -14,7 +14,6 @@ const CheckboxStyleCSS = css`
   background-color: ${checkboxDisabledColor};
   border-radius: ${checkboxRadius}px;
   transition: 0.2s;
-  border: 1px solid gray;
 `;
 
 const CheckboxCheckedStyleCSS = css`

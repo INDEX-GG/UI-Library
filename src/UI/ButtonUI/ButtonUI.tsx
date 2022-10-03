@@ -8,7 +8,6 @@ import {
   IButtonProps,
 } from "UI/ButtonUI/types";
 import { useButtonUI } from "UI/ButtonUI/useButtonUI";
-import "./animation.css";
 
 export const ButtonUI = ({
   children,

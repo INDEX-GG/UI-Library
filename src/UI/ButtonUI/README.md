@@ -3,8 +3,6 @@
   - 
 - isAutoWidth (`type: boolean`, `default: true`) - ширина и длинна кнопки 100%
   -
-- isRippleEffect (`type: boolean`, `default: true`) - анимация клика
-  - 
 - iconObj
   - 
   - Icon (`type: FC | null`, `default: null`) - иконка внутри кнопки

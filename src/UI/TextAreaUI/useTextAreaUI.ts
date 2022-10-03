@@ -12,6 +12,7 @@ export const useTextAreaUI = ({
   const { value } = textAreaProps;
 
   useEffect(() => {
+    console.log(value);
     if (typeof value !== undefined) {
       const textAreaDOM = textAreaRef.current;
       if (textAreaDOM) {

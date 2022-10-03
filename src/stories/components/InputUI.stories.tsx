@@ -43,7 +43,7 @@ export const InputPhone = TemplateInputPhone.bind({});
 InputDefault.args = {
   inputProps: {
     type: "text",
-    placeholder: "text",
+    placeholder: "Поле для обратной связи",
     inputMode: "text",
     name: "default-input",
   },

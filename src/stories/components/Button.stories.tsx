@@ -26,7 +26,7 @@ const TemplateCheckboxUI: ComponentStory<typeof ButtonUI> = (args) => {
   return (
     <>
       <GithubLink componentName="ButtonUI" />
-      <ButtonUI {...args}>Кнопка</ButtonUI>)
+      <ButtonUI {...args}>Кнопка</ButtonUI>
     </>
   );
 };

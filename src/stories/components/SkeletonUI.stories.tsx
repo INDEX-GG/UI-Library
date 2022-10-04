@@ -2,6 +2,7 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import "css/global.css";
 import { SkeletonUI } from "UI/SkeletonUI/SkeletonUI";
+import GithubLink from "../../components/GithubLink/GithubLink";
 
 //! EXTEND InputUI
 export default {
@@ -19,9 +20,12 @@ export default {
 
 const TemplateCheckboxUI: ComponentStory<typeof SkeletonUI> = (args) => {
   return (
-    <div style={{ height: "30px" }}>
-      <SkeletonUI {...args} />
-    </div>
+    <>
+      <GithubLink componentName="SkeletonUI" />
+      <div style={{ height: "30px" }}>
+        <SkeletonUI {...args} />
+      </div>
+    </>
   );
 };
 export const Default = TemplateCheckboxUI.bind({});

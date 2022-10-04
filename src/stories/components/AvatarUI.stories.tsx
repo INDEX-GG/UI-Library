@@ -2,6 +2,7 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import "css/global.css";
 import { AvatarUI } from "UI/AvatarUI/AvatarUI";
+import GithubLink from "../../components/GithubLink/GithubLink";
 
 //! EXTEND InputUI
 export default {
@@ -27,7 +28,12 @@ export default {
 } as ComponentMeta<typeof AvatarUI>;
 
 const TemplateCheckboxUI: ComponentStory<typeof AvatarUI> = (args) => {
-  return <AvatarUI {...args} />;
+  return (
+    <>
+      <GithubLink componentName="AvatarUI" />
+      <AvatarUI {...args} />
+    </>
+  );
 };
 export const Default = TemplateCheckboxUI.bind({});
 

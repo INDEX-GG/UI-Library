@@ -3,6 +3,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import "css/global.css";
 import { TextAreaUI } from "UI/TextAreaUI/TextAreaUI";
 import { useArgs } from "@storybook/client-api";
+import GithubLink from "../../components/GithubLink/GithubLink";
 
 //! EXTEND InputUI
 export default {
@@ -22,14 +23,17 @@ const TemplateTextAreaUI: ComponentStory<typeof TextAreaUI> = (args) => {
   const [{ value }, changeArgs] = useArgs();
 
   return (
-    <TextAreaUI
-      {...args}
-      textAreaProps={{
-        ...args.textAreaProps,
-        value: value,
-        onChange: (e) => changeArgs({ value: e.target.value }),
-      }}
-    />
+    <>
+      <GithubLink componentName="TextAreaUI" />
+      <TextAreaUI
+        {...args}
+        textAreaProps={{
+          ...args.textAreaProps,
+          value: value,
+          onChange: (e) => changeArgs({ value: e.target.value }),
+        }}
+      />
+    </>
   );
 };
 export const Default = TemplateTextAreaUI.bind({});

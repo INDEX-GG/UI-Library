@@ -4,6 +4,7 @@ import { InputUI } from "UI/InputUI/InputUI";
 import "css/global.css";
 import { InputArgTypes } from "../constants/constants";
 import { telephoneMask } from "../../services/services";
+import GithubLink from "../../components/GithubLink/GithubLink";
 
 export default {
   title: "Example/InputUI",
@@ -12,7 +13,10 @@ export default {
 } as ComponentMeta<typeof InputUI>;
 
 const TemplateInput: ComponentStory<typeof InputUI> = (args) => (
-  <InputUI {...args} />
+  <>
+    <GithubLink componentName="InputUI" />
+    <InputUI {...args} />
+  </>
 );
 
 const TemplateInputPhone: ComponentStory<typeof InputUI> = ({

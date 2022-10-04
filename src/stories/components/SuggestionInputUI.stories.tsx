@@ -4,6 +4,7 @@ import "css/global.css";
 import { SuggestionInputUI } from "UI/SuggestionInputUI/SuggestionInputUI";
 import SuggestionItem from "UI/SuggestionInputUI/SuggestionItem/SuggestionItem";
 import SuggestionController from "UI/SuggestionInputUI/SuggestionController/SuggestionController";
+import GithubLink from "../../components/GithubLink/GithubLink";
 
 //! EXTEND InputUI
 export default {
@@ -17,7 +18,13 @@ export default {
 } as ComponentMeta<typeof SuggestionInputUI>;
 
 const TemplateCheckboxUI: ComponentStory<typeof SuggestionInputUI> = (args) => {
-  return <SuggestionController />;
+  return (
+    <>
+      <GithubLink componentName="SuggestionInputUI" />
+      <h1>not end</h1>
+      <SuggestionController />
+    </>
+  );
 };
 export const Default = TemplateCheckboxUI.bind({});
 

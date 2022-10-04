@@ -3,6 +3,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import "css/global.css";
 import { ModalUI } from "UI/ModalUI/ModalUI";
 import { ButtonUI } from "UI/ButtonUI/ButtonUI";
+import GithubLink from "../../components/GithubLink/GithubLink";
 
 //! EXTEND InputUI
 export default {
@@ -46,6 +47,7 @@ const TemplateCheckboxUI: ComponentStory<typeof ModalUI> = ({
 
   return (
     <>
+      <GithubLink componentName="ModalUI" />
       <ButtonUI
         isAutoWidth={true}
         buttonProps={{ onClick: () => setCustomIsOpen(true) }}>

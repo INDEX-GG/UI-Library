@@ -3,6 +3,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import "css/global.css";
 import { ButtonUI } from "UI/ButtonUI/ButtonUI";
 import MessageIcon from "../../assets/icon/MessageIcon";
+import GithubLink from "../../components/GithubLink/GithubLink";
 
 //! EXTEND InputUI
 export default {
@@ -22,7 +23,12 @@ export default {
 } as ComponentMeta<typeof ButtonUI>;
 
 const TemplateCheckboxUI: ComponentStory<typeof ButtonUI> = (args) => {
-  return <ButtonUI {...args}>Кнопка</ButtonUI>;
+  return (
+    <>
+      <GithubLink componentName="ButtonUI" />
+      <ButtonUI {...args}>Кнопка</ButtonUI>)
+    </>
+  );
 };
 export const Default = TemplateCheckboxUI.bind({});
 export const Disabled = TemplateCheckboxUI.bind({});

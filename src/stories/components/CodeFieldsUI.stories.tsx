@@ -2,6 +2,7 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { CodeFieldsUI } from "UI/CodeFieldsUI/CodeFieldsUI";
 import "css/global.css";
+import GithubLink from "../../components/GithubLink/GithubLink";
 
 //! EXTEND InputUI
 export default {
@@ -18,7 +19,12 @@ export default {
 } as ComponentMeta<typeof CodeFieldsUI>;
 
 const TemplateCodeFields: ComponentStory<typeof CodeFieldsUI> = (args) => {
-  return <CodeFieldsUI {...args} />;
+  return (
+    <>
+      <GithubLink componentName="CodeFieldsUI" />
+      <CodeFieldsUI {...args} />
+    </>
+  );
 };
 export const CodeFieldsDefault = TemplateCodeFields.bind({});
 

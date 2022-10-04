@@ -2,6 +2,7 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import "css/global.css";
 import { SpinnerUI } from "UI/SpinnerUI/SpinnerUI";
+import GithubLink from "../../components/GithubLink/GithubLink";
 
 //! EXTEND InputUI
 export default {
@@ -15,7 +16,12 @@ export default {
 } as ComponentMeta<typeof SpinnerUI>;
 
 const TemplateCheckboxUI: ComponentStory<typeof SpinnerUI> = (args) => {
-  return <SpinnerUI {...args} />;
+  return (
+    <>
+      <GithubLink componentName="SpinnerUI" />
+      <SpinnerUI {...args} />
+    </>
+  );
 };
 export const Default = TemplateCheckboxUI.bind({});
 

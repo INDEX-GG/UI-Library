@@ -3,6 +3,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import "css/global.css";
 import { DrawerUI } from "UI/DrawerUI/DrawerUI";
 import { useArgs } from "@storybook/client-api";
+import GithubLink from "../../components/GithubLink/GithubLink";
 
 //! EXTEND InputUI
 export default {
@@ -36,6 +37,8 @@ const TemplateCheckboxUI: ComponentStory<typeof DrawerUI> = (args) => {
 
   return (
     <>
+      <GithubLink componentName="DrawerUI" />
+
       <button onClick={handleChange}>open drawer</button>
       <DrawerUI {...args} handleClose={handleChange}>
         <div>DrawerChildren</div>

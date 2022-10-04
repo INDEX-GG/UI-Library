@@ -1,6 +1,6 @@
 import React from "react";
 
-const VirtualListUi = () => {
+export const VirtualListUI = () => {
   return (
     <div>
       <h1>
@@ -19,4 +19,4 @@ const VirtualListUi = () => {
   );
 };
 
-export default React.memo(VirtualListUi);
+export default React.memo(VirtualListUI);

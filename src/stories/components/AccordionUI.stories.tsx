@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import "css/global.css";
 import { AccordionUI } from "UI/AccordionUI/AccordionUI";
+import GithubLink from "../../components/GithubLink/GithubLink";
 
 //! EXTEND InputUI
 export default {
@@ -41,12 +42,15 @@ const TemplateCheckboxUI: ComponentStory<typeof AccordionUI> = ({
   };
 
   return (
-    <AccordionUI
-      isOpen={isInnerOpen}
-      {...otherArgs}
-      handleChange={handleChangeOpen}>
-      {otherArgs.children}
-    </AccordionUI>
+    <>
+      <GithubLink componentName="AccordionUI" />
+      <AccordionUI
+        isOpen={isInnerOpen}
+        {...otherArgs}
+        handleChange={handleChangeOpen}>
+        {otherArgs.children}
+      </AccordionUI>
+    </>
   );
 };
 export const Default = TemplateCheckboxUI.bind({});

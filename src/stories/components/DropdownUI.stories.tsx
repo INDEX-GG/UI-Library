@@ -10,7 +10,7 @@ export default {
   argTypes: {},
 } as ComponentMeta<typeof DropdownUI>;
 
-const TemplateCheckboxUI: ComponentStory<typeof DropdownUI> = (args) => {
+const TemplateCheckboxUI: ComponentStory<typeof DropdownUI> = () => {
   return <DropdownUI />;
 };
 export const Default = TemplateCheckboxUI.bind({});

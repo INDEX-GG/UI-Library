@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { ValidatePasswordUI } from "UI/ValidatePasswordUI/ValidatePasswordUI";
 import "css/global.css";
+import GithubLink from "../../components/GithubLink/GithubLink";
 
 //! EXTEND InputUI
 export default {
@@ -27,6 +28,7 @@ const TemplateCheckboxUI: ComponentStory<typeof ValidatePasswordUI> = (
 
   return (
     <>
+      <GithubLink componentName="ValidatePasswordUI" />
       <h1>Validate rules status: {`${isValidate}`}</h1>
       <br />
       <ValidatePasswordUI

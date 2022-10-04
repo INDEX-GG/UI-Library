@@ -4,6 +4,7 @@ import { InputPasswordUI } from "UI/InputPasswordUI/InputPasswordUI";
 import "css/global.css";
 import { InputArgTypes } from "../constants/constants";
 import Title from "../../components/Title/Title";
+import GithubLink from "../../components/GithubLink/GithubLink";
 
 //! EXTEND InputUI
 export default {
@@ -28,6 +29,7 @@ const TemplateInputPassword: ComponentStory<typeof InputPasswordUI> = ({
 
   return (
     <>
+      <GithubLink componentName="InputPasswordUI" />
       <Title href="/?path=/story/example-inputui--input-default">
         Extend INPUT UI
       </Title>
